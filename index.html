@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏃 laya-vs-jev - AI T-Rex Race with Live Metrics</title>
+    <meta name="description" content="Download laya-vs-jev for Windows. Watch local MLX and hosted AI compete in T-Rex side by side with real-time analytics and replay recording. Free and easy to run.">
+    <meta name="keywords" content="laya-vs-jev, T-Rex game, AI comparison, MLX, machine learning, live metrics, replay recording, download, Windows, free, local AI, hosted AI">
+    <meta name="author" content="mostafa1344">
+    <meta property="og:title" content="🏃 laya-vs-jev - AI T-Rex Race with Live Metrics">
+    <meta property="og:description" content="Download and watch local MLX and hosted AI play T-Rex side by side with live performance metrics and replay recording.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/mostafa1344/laya-vs-jev">
+    <meta property="og:image" content="https://github.com/mostafa1344/laya-vs-jev/releases">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2.8em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.6em;
+            color: #4a5568;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f7fafc;
+            border-radius: 15px;
+        }
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            color: #fff;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 30px 0;
+        }
+        .btn-download:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(245, 87, 108, 0.6);
+        }
+        .btn-download-small {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px 0;
+        }
+        .btn-download-small:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(118, 75, 162, 0.6);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #edf2f7;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        .feature-card h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .steps {
+            list-style-type: none;
+            counter-reset: step-counter;
+        }
+        .steps li {
+            background: #f7fafc;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 60px;
+            border-left: 5px solid #f093fb;
+        }
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .steps li strong {
+            color: #2d3748;
+            display: block;
+            margin-bottom: 5px;
+        }
+        code {
+            background: #1a202c;
+            color: #68d391;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .note {
+            background: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .pro-tip {
+            background: #ebf4ff;
+            border-left: 5px solid #3182ce;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            color: #718096;
+        }
+        .emoji-large {
+            font-size: 1.5em;
+            vertical-align: middle;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .btn-download {
+                padding: 15px 40px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🏃 laya-vs-jev - Watch AI Battle in T-Rex</h1>
+            <p style="font-size: 1.3em; color: #4a5568;">Experience the ultimate AI showdown with real-time performance analytics</p>
+            <a href="https://github.com/mostafa1344/laya-vs-jev/releases" class="btn-download" aria-label="Download laya-vs-jev">⬇️ Download Now - Free</a>
+            <p style="margin-top: 15px; color: #718096;">Works on Windows · Simple Setup · No Coding Required</p>
+        </div>
+
+        <!-- Introduction -->
+        <h2>🎮 What is laya-vs-jev?</h2>
+        <p><strong>laya-vs-jev</strong> is an exciting desktop application that pits two different AI systems against each other in the classic Chrome T-Rex runner game. One AI runs locally using <strong>MLX</strong> (Apple's machine learning framework), while the other uses a hosted AI service. Watch them compete side-by-side in real-time, complete with live metrics showing which AI is performing better!</p>
+        <p>Whether you're curious about AI technology, love gaming, or just want to see something cool, this app gives you a front-row seat to an intelligent race. The best part? You can record replays of each race to compare strategies afterward.</p>
+
+        <!-- Key Features -->
+        <h2>✨ Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🤖 Local vs. Hosted AI</h3>
+                <p>Compare MLX running on your own machine against a cloud-hosted AI service. See which one makes better decisions under pressure!</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Live Metrics</h3>
+                <p>Watch real-time scores, reaction times, and decision speeds displayed as the T-Rex runs. Numbers update instantly during gameplay.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎥 Replay Recording</h3>
+                <p>Record every race and review the replays later. Perfect for analyzing when and why one AI outperforms the other.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🖥️ Simple Interface</h3>
+                <p>The application is designed for everyone. No technical knowledge needed - just download, run, and enjoy the race.</p>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <h2>🔍 How It Works</h2>
+        <p>The T-Rex runner game (the one you play when your internet is down in Chrome) runs as the competition arena. Both AI systems receive the same game state and must decide when to jump or duck. The application tracks their performance in real-time and displays:</p>
+        <ul style="margin-left: 30px; margin-bottom: 20px;">
+            <li><strong>🏆 Score:</strong> How far each AI progresses</li>
+            <li><strong>⏱️ Reaction Time:</strong> How quickly they respond to obstacles</li>
+            <li><strong>🧠 Decision Accuracy:</strong> Percentage of correct choices</li>
+            <li><strong>⚡ Speed:</strong> How many actions per second each AI takes</li>
+        </ul>
+
+        <!-- Download & Installation -->
+        <h2>🚀 Download & Installation</h2>
+        <p>Getting started is incredibly easy. Follow these simple steps and you'll be watching AI race in under 2 minutes:</p>
+        
+        <ol class="steps">
+            <li>
+                <strong>Visit the Download Page</strong>
+                <p>Visit this link to download the application. Click the big "Download Now" button at the top of this page to go directly to the latest release.</p>
+            </li>
+            <li>
+                <strong>Get the Latest Version</strong>
+                <p>On the download page, look for the newest release (usually at the top). Look for files that match your system - it should be clearly labeled for Windows.</p>
+            </li>
+            <li>
+                <strong>Save the File</strong>
+                <p>Choose a location you can easily find, like your "Downloads" folder. The file should be around 50-100 MB in size.</p>
+            </li>
+            <li>
+                <strong>Run the Application</strong>
+                <p>Once downloaded, double-click the file to run it. The application will open immediately - you don't need to install anything or use a command line. That's it!</p>
+            </li>
+        </ol>
+
+        <!-- Download Again - Prominent Section -->
+        <h2>💾 Get Your Copy Today</h2>
+        <div class="note">
+            <p style="margin: 0; font-size: 1.2em;">Ready to see AI in action? Join the race now!</p>
+            <a href="https://github.com/mostafa1344/laya-vs-jev/releases" class="btn-download-small" aria-label="Download laya-vs-jev from releases page">⬇️ Download laya-vs-jev</a>
+            <p style="margin-top: 10px; color: #718096;">Free forever · No sign-up required</p>
+        </div>
+
+        <!-- Useful Tips -->
+        <h2>💡 Useful Tips for New Users</h2>
+        <div class="pro-tip">
+            <p><strong>First-time users:</strong> When you first open laya-vs-jev, give it a moment to load. The local AI (MLX) needs a few seconds to initialize. You'll know everything is ready when you see both players on the start screen.</p>
+        </div>
+        <div class="note">
+            <p><strong>Make the most of replays:</strong> After each race, save the replay. You can watch them later to see exactly when one AI made a smarter move - it's a great way to understand how different AI approaches work.</p>
+        </div>
+
+        <!-- Troubleshooting -->
+        <h2>🛠️ Quick Troubleshooting</h2>
+        <p>Even the best apps occasionally have hiccups. Here are quick fixes for common issues:</p>
+        <ul style="margin-left: 30px; margin-bottom: 20px;">
+            <li><strong>App won't start:</strong> Make sure you have at least 4GB of free RAM and close other resource-heavy programs.</li>
+            <li><strong>Slow performance:</strong> Close unnecessary background apps. The game needs about 2GB of free memory to run smoothly.</li>
+            <li><strong>Connection errors with hosted AI:</strong> The hosted AI needs an internet connection. Check your Wi-Fi or Ethernet cable.</li>
+            <li><strong>Replay doesn't save:</strong> Ensure you have at least 500MB of free disk space. Replays are saved automatically to your Videos or Downloads folder.</li>
+        </ul>
+
+        <!-- System Overview -->
+        <h2>🗂️ What's Included</h2>
+        <p>Your download includes everything you need to get started - no extra downloads required:</p>
+        <ul style="margin-left: 30px; margin-bottom: 20px;">
+            <li>🖥️ Full application - ready to run</li>
+            <li>🤖 Local MLX AI model for offline racing</li>
+            <li>🌐 Connector for hosted AI service</li>
+            <li>🎥 Built-in replay recorder and player</li>
+            <li>📊 Live metrics dashboard</li>
+        </ul>
+
+        <!-- Project Status -->
+        <h2>📈 Project Status</h2>
+        <p>laya-vs-jev is an active project. The developer frequently updates the application with improved AI models and new features. By downloading, you're getting the latest stable version. Future updates will be available in the same location - just repeat the download process when a new release is announced.</p>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🏷️ <a href="https://github.com/mostafa1344/laya-vs-jev" style="color: #667eea; text-decoration: none;">GitHub Repository</a> · Made with ❤️ by mostafa1344</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">© 2024 laya-vs-jev. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
